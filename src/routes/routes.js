@@ -1,4 +1,5 @@
 const authRouter = require('./auth.routes')
+const driveRouter = require('./drive.routes')
 const tokenValidator = require('../middleware/authenticationValidator')
 
 /**
@@ -13,12 +14,7 @@ function routes(app) {
   app.get('/healthcheck', (_req, res) => res.sendStatus(200));
 
   app.use('/api/auth', authRouter);
-
-  app.all('/api/drive', tokenValidator);
-  app.use('/api/drive', (req, res) => {
-    console.log(req.token)
-    return res.sendStatus(200)
-  });
+  app.use('/api/drive', tokenValidator, driveRouter);
 }
 
 module.exports = routes;

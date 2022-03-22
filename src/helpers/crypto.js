@@ -1,5 +1,4 @@
 const cryptojs = require('crypto-js');
-const { json } = require('express/lib/response');
 const { SECRET } = require('../config/env')
 
 module.exports = {

@@ -7,10 +7,12 @@ const CREDENTIALS = {
   REDIRECT_URI: process.env.REDIRECT_URI,
   SCOPE: process.env.SCOPE
 }
+const FOLDER_ID = process.env.FOLDER_ID
 
 module.exports = {
   APP_URI,
   SECRET,
   PORT,
-  CREDENTIALS
+  CREDENTIALS,
+  FOLDER_ID
 }
