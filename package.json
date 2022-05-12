@@ -4,9 +4,11 @@
   "description": "API for Punto Alto Catalog",
   "main": "server.js",
   "scripts": {
-    "start": "node ./server.js",
-    "dev": "nodemon -r dotenv/config src/app.js",
-    "debug": "nodemon --inspect -r dotenv/config src/app.js"
+    "start": "npm run build && node dist/index.js",
+    "build": "npm run lint && rimraf dist/ && tsc",
+    "dev": "nodemon -r dotenv/config src/index.ts",
+    "debug": "nodemon --inspect -r dotenv/config src/app.js",
+    "lint": "eslint src/**/*.ts"
   },
   "keywords": [
     "PuntoAlto",
@@ -22,11 +24,25 @@
     "dayjs": "^1.10.8",
     "express": "^4.17.3",
     "googleapis": "^95.0.0",
+    "morgan": "^1.10.0",
     "pino": "^7.8.0",
     "pino-pretty": "^7.5.3"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^17.0.32",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
     "dotenv": "^16.0.0",
-    "nodemon": "^2.0.15"
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.2",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
   }
 }
