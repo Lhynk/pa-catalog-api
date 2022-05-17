@@ -1,3 +1,4 @@
+import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express, { Express } from 'express';
 import morgan from 'morgan';
@@ -8,7 +9,7 @@ import { RouterConfig } from './routes/config';
 const app: Express = express();
 const port: string | number = ENV.PORT;
 
-const allowedOrigins = ENV.APP_URI?.split(',').map((url: string) => `${url}`);
+const allowedOrigins: Array<string> = ENV.APP_URI.split(',').map((url: string) => `${url}`);
 const options: cors.CorsOptions = {
   origin: allowedOrigins,
 };
@@ -16,6 +17,7 @@ const options: cors.CorsOptions = {
 // Middlewares
 app.use(express.json());
 app.use(morgan('tiny'));
+app.use(cookieParser());
 app.use(cors(options));
 
 RouterConfig.setupRouters(app);

@@ -4,10 +4,9 @@
   "description": "API for Punto Alto Catalog",
   "main": "server.js",
   "scripts": {
-    "start": "npm run build && node dist/index.js",
+    "dev": "tsnd -r dotenv/config src/index.ts",
     "build": "npm run lint && rimraf dist/ && tsc",
-    "dev": "nodemon -r dotenv/config src/index.ts",
-    "debug": "nodemon --inspect -r dotenv/config src/app.js",
+    "start": "npm run build && node dist/index.js",
     "lint": "eslint src/**/*.ts"
   },
   "keywords": [
@@ -17,6 +16,7 @@
   "author": "Esau Orozco",
   "license": "ISC",
   "dependencies": {
+    "@types/crypto-js": "^4.1.1",
     "config": "^3.3.7",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -29,6 +29,7 @@
     "pino-pretty": "^7.5.3"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.3",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/morgan": "^1.9.3",
@@ -43,6 +44,7 @@
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.6.4"
   }
 }

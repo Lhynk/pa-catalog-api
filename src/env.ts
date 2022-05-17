@@ -1,6 +1,6 @@
-const APP_URI = process.env.APP_URI;
-const SECRET = process.env.AUTH_COOKIE;
-const PORT = process.env.PORT || 3001;
+const APP_URI: string = process.env.APP_URI || '';
+const SECRET: string = process.env.AUTH_COOKIE || '';
+const PORT: number | string = process.env.PORT || 3001;
 const CREDENTIALS = {
   CLIENT_ID: process.env.CLIENT_ID,
   CLIENT_SECRET: process.env.CLIENT_SECRET,
