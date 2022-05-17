@@ -1,5 +1,7 @@
 import { Express } from 'express';
 
+import AuthRouter from './auth.routes';
+
 /**
  * Router configuration
  *
@@ -10,6 +12,8 @@ import { Express } from 'express';
  */
 const setupRouters = (app: Express) => {
   app.get('/healthcheck', (_req, res) => res.sendStatus(200));
+
+  app.use('/api/auth', AuthRouter);
 };
 
 export const RouterConfig = {
