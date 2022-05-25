@@ -1,11 +1,10 @@
-import cryptoJs from 'crypto-js';
+import * as CryptoES from 'crypto-js';
 
-import { ENV } from '../env';
+import ENV from '../env';
 
-const encrypt: (value: string) => string = (value: string) => cryptoJs.AES.encrypt(value, ENV.SECRET).toString();
-const decrypt: (value: string) => string = (value: string) => cryptoJs.AES.decrypt(value, ENV.SECRET).toString(cryptoJs.enc.Utf8);
-
-export const Crypto = {
-  encrypt,
-  decrypt,
+const Crypto = {
+  encrypt: (value: string) => CryptoES.AES.encrypt(value, ENV.SECRET).toString(),
+  decrypt: (value: string) => CryptoES.AES.decrypt(value, ENV.SECRET).toString(CryptoES.enc.Utf8),
 };
+
+export default Crypto;

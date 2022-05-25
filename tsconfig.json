@@ -1,9 +1,32 @@
 {
-  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "baseUrl": "src"
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    /* Basic configuration */
+    "target": "ES6",
+    "module": "commonjs",
+    "lib": ["ESNext", "DOM"],
+    "allowJs": true,
+    "removeComments": true,
+    "outDir": "./dist",
+
+    /* Strict options */
+    "strict": true,
+    "noImplicitAny": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "Node",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+
+    /* Advanced Options */
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Other rules */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "exclude": ["node_modules", "dist", "coverage"],
+  "include": ["src"]
 }
